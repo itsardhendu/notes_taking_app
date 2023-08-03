@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "106281026987",
+    "project_id": "asr-notes-app",
+    "storage_bucket": "asr-notes-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106281026987:android:c01fe74b7108f1ed4bbeee",
+        "android_client_info": {
+          "package_name": "com.asr.notesapp.notes_taking_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106281026987-13vh2hnunogrcuudl1lci1lt435jdirv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD2h4WeTpCCuPCiIZjsym5rJ1UcewEZmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106281026987-13vh2hnunogrcuudl1lci1lt435jdirv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
