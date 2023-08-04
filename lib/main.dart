@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_taking_app/views/loginViews.dart';
 import 'package:notes_taking_app/views/registerViews.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() {
   runApp(

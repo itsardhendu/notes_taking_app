@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
 
@@ -34,9 +35,15 @@ class _RegisterViewState extends State<RegisterView> {
         children: [
           TextField(
             controller: _email,
+            decoration: InputDecoration(
+              hintText: 'Enter your email here',
+            ),
           ),
           TextField(
             controller: _password,
+            decoration: InputDecoration(
+              hintText: 'Enter your password',
+            ),
           ),
           TextButton(
             onPressed: () async {},

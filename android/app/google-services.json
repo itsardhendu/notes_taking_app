@@ -29,6 +29,13 @@
             {
               "client_id": "106281026987-13vh2hnunogrcuudl1lci1lt435jdirv.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "106281026987-9tv3jjp1amd4h49gf9s7o1nnpvl0b89u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.asr.notesapp.notesTakingApp.RunnerTests"
+              }
             }
           ]
         }
