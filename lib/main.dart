@@ -4,6 +4,7 @@ import 'package:notes_taking_app/views/registerViews.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
       MaterialApp(
         title: 'Flutter Note Taking App',

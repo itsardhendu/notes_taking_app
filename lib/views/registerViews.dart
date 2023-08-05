@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import '../firebase_options.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -31,25 +33,54 @@ class _RegisterViewState extends State<RegisterView> {
       appBar: AppBar(
         title: const Text('Register'),
       ),
-      body: Column(
-        children: [
-          TextField(
-            controller: _email,
-            decoration: InputDecoration(
-              hintText: 'Enter your email here',
-            ),
-          ),
-          TextField(
-            controller: _password,
-            decoration: InputDecoration(
-              hintText: 'Enter your password',
-            ),
-          ),
-          TextButton(
-            onPressed: () async {},
-            child: const Text('Click to Register'),
-          ),
-        ],
+      body: FutureBuilder(
+        future: Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform,
+        ),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.done:
+              return Column(
+                children: [
+                  TextField(
+                    // Email TextField
+                    controller: _email,
+                    keyboardType: TextInputType.emailAddress,
+                    enableSuggestions: false,
+                    autocorrect: false,
+                    decoration: const InputDecoration(
+                      hintText: 'Enter your email here',
+                    ),
+                  ),
+                  TextField(
+                    //Password TextField
+                    controller: _password,
+                    obscureText: true,
+                    enableSuggestions: false,
+                    autocorrect: false,
+                    inputFormatters: [],
+                    decoration: const InputDecoration(
+                      hintText: 'Enter your password',
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () async {
+                      final email = _email.text;
+                      final password = _password.text;
+                      final userCreadential = await FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                          email: email,
+                          password: password); //Firebase Create User
+                      print(userCreadential);
+                    },
+                    child: const Text('Click to Register'),
+                  ),
+                ],
+              );
+            default:
+              return const Text('Loading...');
+          } //Switch Snapshot
+        },
       ),
     );
   }
