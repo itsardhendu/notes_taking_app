@@ -69,8 +69,8 @@ class _RegisterViewState extends State<RegisterView> {
                       final password = _password.text;
                       final userCreadential = await FirebaseAuth.instance
                           .createUserWithEmailAndPassword(
-                          email: email,
-                          password: password); //Firebase Create User
+                              email: email,
+                              password: password); //Firebase Create User
                       print(userCreadential);
                     },
                     child: const Text('Click to Register'),

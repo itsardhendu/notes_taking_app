@@ -6,33 +6,33 @@ import 'package:firebase_auth/firebase_auth.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-      MaterialApp(
-        title: 'Flutter Note Taking App',
-        theme: ThemeData(
-            appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.greenAccent, // Set the desired AppBar color here
-            ),
-          useMaterial3: true,
+    MaterialApp(
+      title: 'Flutter Note Taking App',
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor:
+              Colors.greenAccent, // Set the desired AppBar color here
         ),
-        home: const RegisterView(),
+        useMaterial3: true,
       ),
+      home: const LoginView(),
+    ),
   );
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Register'),
-      ),
-      body: TextButton(
-        onPressed:  () {
-
-        }, child: const Text('Register'),
-      ),
-    );
-  }
-}
+// class HomePage extends StatelessWidget {
+//   const HomePage({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Register'),
+//       ),
+//       body: TextButton(
+//         onPressed: () {},
+//         child: const Text('Register'),
+//       ),
+//     );
+//   }
+// }
