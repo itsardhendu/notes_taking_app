@@ -73,7 +73,7 @@ class _RegisterViewState extends State<RegisterView> {
                               password: password); //Firebase Create User
                       print(userCreadential);
                     },
-                    child: const Text('Click to Register'),
+                    child: const Text('Register'),
                   ),
                 ],
               );
