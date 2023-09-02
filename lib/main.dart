@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:notes_taking_app/views/const/routes.dart';
 import 'package:notes_taking_app/views/loginViews.dart';
 import 'package:notes_taking_app/views/registerViews.dart';
 import 'package:notes_taking_app/views/verifyEmailViews.dart';
@@ -21,9 +22,10 @@ void main() {
       ),
       home: const HomePage(),
       routes: {
-        '/login/': (context) => const LoginView(),
-        '/register/': (context) => const RegisterView(),
-        '/notes/': (context) => const NotesView(),
+        loginRoute: (context) => const LoginView(),
+        registerRoute: (context) => const RegisterView(),
+        notesRoute: (context) => const NotesView(),
+        verifyRoute: (context) => const VerifyEmailView(),
       },
     ),
   );
@@ -73,7 +75,7 @@ class _NotesViewState extends State<NotesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Main UI'),
+        title: const Text('Take Notes'),
         actions: [
           PopupMenuButton<MenuAction>(
             onSelected: (value) async {

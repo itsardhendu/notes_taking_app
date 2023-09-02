@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'dart:developer' as devtools show log;
+import 'package:notes_taking_app/views/const/routes.dart';
+import '../utilities/showErrorDialog.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -29,15 +30,17 @@ class _LoginViewState extends State<LoginView> {
         password: password,
       );
       Navigator.of(context)
-          .pushNamedAndRemoveUntil('/notes/', (route) => false);
+          .pushNamedAndRemoveUntil(notesRoute, (route) => false);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        devtools.log('User not found');
+        await showErrorDialog(context, 'User not found');
       } else if (e.code == 'wrong-password') {
-        devtools.log('Wrong password');
+        await showErrorDialog(context, 'Wrong credentials');
       } else {
-        devtools.log('Error: ${e.code}');
+        await showErrorDialog(context, 'Error: ${e.code}');
       }
+    } catch (e) {
+      await showErrorDialog(context, 'Error: $e');
     }
   }
 
@@ -68,7 +71,7 @@ class _LoginViewState extends State<LoginView> {
           TextButton(
             onPressed: () {
               Navigator.of(context).pushNamedAndRemoveUntil(
-                '/register/',
+                registerRoute,
                 (route) => false,
               );
             },
