@@ -12,4 +12,6 @@ abstract class AuthProvider {
   });
   Future<void> logout();
   Future<void> sendEmailVerification();
+
+  initialize() {}
 }
