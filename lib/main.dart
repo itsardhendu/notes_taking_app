@@ -10,20 +10,20 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MaterialApp(
-      title: 'Flutter Note Taking App',
+      title: 'Flutter Note Taking App', // Title of the application
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           backgroundColor:
-              Colors.greenAccent, // Set the desired AppBar color here
+          Colors.greenAccent, // Set the desired AppBar color here
         ),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const HomePage(), // Set the home page to HomePage widget
       routes: {
-        loginRoute: (context) => const LoginView(),
-        registerRoute: (context) => const RegisterView(),
-        notesRoute: (context) => const NotesView(),
-        verifyRoute: (context) => const VerifyEmailView(),
+        loginRoute: (context) => const LoginView(), // Route to LoginView widget
+        registerRoute: (context) => const RegisterView(), // Route to RegisterView widget
+        notesRoute: (context) => const NotesView(), // Route to NotesView widget
+        verifyRoute: (context) => const VerifyEmailView(), // Route to VerifyEmailView widget
       },
     ),
   );
@@ -35,22 +35,22 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: AuthService.firebase().initialize(),
+      future: AuthService.firebase().initialize(), // Initialize authentication service
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.done:
-            final user = AuthService.firebase().currentUser;
+            final user = AuthService.firebase().currentUser; // Get current authenticated user
             if (user != null) {
               if (user.isEmailVerified) {
-                return const NotesView();
+                return const NotesView(); // If user is verified, show NotesView
               } else {
-                return const VerifyEmailView();
+                return const VerifyEmailView(); // If email is not verified, show VerifyEmailView
               }
             } else {
-              return const LoginView();
+              return const LoginView(); // If no user is logged in, show LoginView
             }
           default:
-            return const Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator()); // Show loading indicator while initializing
         }
       },
     );

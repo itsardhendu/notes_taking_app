@@ -4,11 +4,16 @@ import 'package:notes_taking_app/service/auth/firebaseAuthProvider.dart';
 
 class AuthService implements AuthProvider {
   final AuthProvider provider;
+
+  // Constructor to initialize the AuthService with a specific authentication provider
   const AuthService(this.provider);
 
+  // Factory constructor to create an instance of AuthService with a Firebase authentication provider
   factory AuthService.firebase() => AuthService(
-        FirebaseAuthProvider(),
-      );
+    FirebaseAuthProvider(),
+  );
+
+  // Implementation of the AuthProvider interface methods
 
   @override
   Future<AuthUser> createUser({
